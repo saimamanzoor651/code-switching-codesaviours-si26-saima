@@ -1,5 +1,4 @@
 # Code Switching NLP | Code Saviours SI-26 | Saima Manzoor
-Haan yaar 😭 **bilkul proper README.md format / raw Markdown** mein de rahi hoon. Isko **as it is copy karke GitHub ki `README.md` file mein paste** kar do:
 
 # Roman Urdu–English Code Switching Detector
 
