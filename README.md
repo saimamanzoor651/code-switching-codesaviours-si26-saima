@@ -52,6 +52,9 @@ The model performed very well for Roman Urdu and English word classification. Th
 git clone https://github.com/saimamanzoor651/code-switching-codesaviours-si26-saima.git
 cd code-switching-codesaviours-si26-saima
 pip install transformers torch
+```
+
+```python
 from transformers import pipeline
 
 classifier = pipeline(
@@ -64,10 +67,11 @@ result = classifier(
 )
 
 print(result)
+```
 
 ## Repository Structure
 
-```text
+```
 ├── SI26_Week6_Saima.ipynb   # Dataset preparation and labeling work
 ├── SI26_Week7_Saima.ipynb   # Model training and evaluation
 ├── dataset.csv              # Dataset used for the project
