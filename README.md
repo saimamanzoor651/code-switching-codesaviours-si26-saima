@@ -20,6 +20,7 @@ This project focuses on identifying the language category of each individual wor
 Try it here:
 
 [https://huggingface.co/spaces/Saima109/code-switching-demo](https://huggingface.co/spaces/Saima109/code-switching-demo)
+
 <img width="1913" height="993" alt="image" src="https://github.com/user-attachments/assets/10d125a4-b9c0-4de1-927d-1517a98f0e0f" />
 
 The demo allows users to enter a Roman Urdu, English, or mixed sentence and view the predicted category for each word.
