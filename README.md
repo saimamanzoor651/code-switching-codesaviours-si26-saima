@@ -33,37 +33,32 @@ The final interface displays the detected words along with their predicted label
 
 ## Results
 
-The model was evaluated using F1 scores for the available language categories.
+The model was evaluated on three language categories: Roman Urdu (URD), English (ENG), and Mixed (MIX).
 
 | Label | F1 Score |
-|------|----------|
-| Roman Urdu (URD) | 0.99 |
-| English (ENG) | 0.98 |
-| Mixed (MIX) | 0.00* |
+|-------|----------|
+| Roman Urdu (URD) | 0.9949 |
+| English (ENG) | 0.9917 |
+| Mixed (MIX) | 0.0000 |
 
-**Weighted Average F1 Score: 0.98**
+**Overall Accuracy: 99%**
 
-\* The MIX category represented less than 0.15% of the labeled tokens, so there were too few examples for the model to learn this category reliably.
+**Weighted Average F1 Score: 0.99**
 
-The Roman Urdu and English categories together represent approximately **99.85% of the labeled tokens**, where the model achieved strong classification performance.
-
+The model performed very well for Roman Urdu and English word classification. The MIX category received an F1 score of 0.0000 because only one MIX example was available in the evaluation data, making it difficult to evaluate and learn this category reliably.
 ## How to Run Locally
-```bash
-pip install transformers torch sentencepiece datasets
-```
+pip install transformers torch
 
-```python
 from transformers import pipeline
 
 classifier = pipeline(
     "token-classification",
-    model="YOUR_MODEL_NAME"
+    model="Saima-Manzoor/code-switching-codesaviours-si26-saima"
 )
 
-print(classifier("Aaj ka din bohot busy tha"))
-```
+print(classifier("Kal university mein presentation hai aur I am feeling prepared"))
 
-4. Open `SI26_Week6_Saima.ipynb` or `SI26_Week7_Saima.ipynb` and run the cells in order.
+Open `SI26_Week6_Saima.ipynb` or `SI26_Week7_Saima.ipynb` and run the cells in order.
 
 ## Repository Structure
 
