@@ -47,8 +47,11 @@ The model was evaluated on three language categories: Roman Urdu (URD), English 
 
 The model performed very well for Roman Urdu and English word classification. The MIX category received an F1 score of 0.0000 because only one MIX example was available in the evaluation data, making it difficult to evaluate and learn this category reliably.
 ## How to Run Locally
-pip install transformers torch
 
+```bash
+git clone https://github.com/saimamanzoor651/code-switching-codesaviours-si26-saima.git
+cd code-switching-codesaviours-si26-saima
+pip install transformers torch
 from transformers import pipeline
 
 classifier = pipeline(
@@ -56,10 +59,11 @@ classifier = pipeline(
     model="Saima-Manzoor/code-switching-codesaviours-si26-saima"
 )
 
-print(classifier("Kal university mein presentation hai aur I am feeling prepared"))
+result = classifier(
+    "Kal university mein presentation hai aur I am feeling prepared"
+)
 
-Open `SI26_Week6_Saima.ipynb` or `SI26_Week7_Saima.ipynb` and run the cells in order.
-
+print(result)
 ## Repository Structure
 
 ```text
