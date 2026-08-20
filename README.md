@@ -1,127 +1,115 @@
+
 # Code Switching NLP | Code Saviours SI-26 | Saima Manzoor
 
-# Roman Urdu–English Code Switching Detector
+## Roman Urdu–English Code Switching Detector
 
-A machine learning application that detects whether each word in a sentence belongs to **Roman Urdu, English, or Mixed language**.
+A machine learning application that analyzes a Roman Urdu-English sentence and identifies whether each word belongs to **Roman Urdu (URD)**, **English (ENG)**, or **Mixed (MIX)**.
+
+---
 
 ## Why This Matters
 
-In Pakistan and other multilingual communities, people often communicate using a mixture of Roman Urdu and English. Traditional language detection systems usually identify only the language of an entire sentence, which makes it difficult to detect language switching at the word level.
+Roman Urdu and English are frequently used together in everyday online communication, including social media posts, chats, comments, and messages. However, many language processing systems are designed for a single language and may struggle when both languages appear in the same sentence.
 
-This project solves this problem by analyzing each word separately and predicting whether it belongs to **Roman Urdu (URD)**, **English (ENG)**, or **Mixed (MIX)**.
+This project focuses on identifying the language category of each individual word in code-switched text. This can be useful as a foundation for future applications involving multilingual text analysis, sentiment analysis, search, and other NLP tasks.
 
-This can be useful for multilingual text analysis, social media analysis, chatbots, and other Natural Language Processing applications.
+---
 
 ## Live Demo
 
-Try the live application here:
+Try it here:
 
 [https://huggingface.co/spaces/Saima109/code-switching-demo](https://huggingface.co/spaces/Saima109/code-switching-demo)
+<img width="1913" height="993" alt="image" src="https://github.com/user-attachments/assets/10d125a4-b9c0-4de1-927d-1517a98f0e0f" />
+
+The demo allows users to enter a Roman Urdu, English, or mixed sentence and view the predicted category for each word.
+
+---
 
 ## How It Works
 
-The user enters a sentence containing Roman Urdu, English, or both.
+The user enters a sentence containing Roman Urdu, English, or a combination of both.
 
-The application splits the sentence into individual words.
+The application separates the sentence into individual words and sends them to the trained language classification model.
 
-Each word is sent to the trained **XLM-RoBERTa model**, which predicts its language category.
+Each word is analyzed and assigned one of three labels: **URD**, **ENG**, or **MIX**.
 
-The final result displays every detected word with its predicted label and shows the total number of words in each category.
+The final interface displays the detected words along with their predicted labels and a summary showing the total number of words in each category.
 
-## Example
-
-### Input
-
-```text
-Aaj ka din bohot busy tha
-```
-
-### Output
-
-| Word  | Predicted Language |
-| ----- | ------------------ |
-| Aaj   | Roman Urdu (URD)   |
-| ka    | Roman Urdu (URD)   |
-| din   | Roman Urdu (URD)   |
-| bohot | Roman Urdu (URD)   |
-| busy  | English (ENG)      |
-| tha   | Roman Urdu (URD)   |
+---
 
 ## Results
 
-The model was evaluated using F1 scores for each language category.
+The model was evaluated using F1 scores for the available language categories.
 
-| Label            | F1 Score |
-| ---------------- | -------- |
-| Roman Urdu (URD) | 0.949    |
-| English (ENG)    | 0.917    |
-| Mixed (MIX)      | 0.000    |
+| Label | F1 Score |
+|------|----------|
+| Roman Urdu (URD) | 0.99 |
+| English (ENG) | 0.98 |
+| Mixed (MIX) | 0.00* |
 
-**Overall Accuracy: 99%**
+**Weighted Average F1 Score: 0.98**
 
-The model performed strongly for Roman Urdu and English word classification.
+\* The MIX category represented less than 0.15% of the labeled tokens, so there were too few examples for the model to learn this category reliably.
 
-The Mixed category received a lower score because of limited representation in the evaluation data.
+The Roman Urdu and English categories together represent approximately **99.85% of the labeled tokens**, where the model achieved strong classification performance.
 
-## Features
-
-* Detects Roman Urdu words
-* Detects English words
-* Supports mixed Roman Urdu–English sentences
-* Performs word-level language classification
-* Displays a label for each detected word
-* Shows the total number of words in each category
-* Provides an interactive web interface
-
-## Technologies Used
-
-* Python
-* Hugging Face Transformers
-* XLM-RoBERTa
-* Gradio
-* Hugging Face Spaces
-* Hugging Face Datasets
+---
 
 ## How to Run Locally
 
-### 1. Clone the Repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/saimamanzoor651/code-switching-codesaviours-si26-saima.git
-```
+````
 
-### 2. Move into the Project Folder
+### 2. Move into the project folder
 
 ```bash
 cd code-switching-codesaviours-si26-saima
 ```
 
-### 3. Install Required Packages
+### 3. Install the required libraries
 
 ```bash
-pip install gradio transformers torch datasets
+pip install transformers torch sentencepiece
 ```
 
-### 4. Run the Application
+### 4. Run the project
 
-```bash
-python app.py
-```
+Open the project notebook in Google Colab or Jupyter Notebook and run the cells in order.
 
-After running the command, open the local URL shown in the terminal.
+---
 
-## Project Structure
+## Repository Structure
 
 ```text
-code-switching-codesaviours-si26-saima/
-│
-├── app.py
-├── dataset.csv
-├── README.md
-└── requirements.txt
+├── SI26_Week6_Saima.ipynb   # Dataset preparation and labeling work
+├── SI26_Week7_Saima.ipynb   # Model training and evaluation
+├── dataset.csv              # Dataset used for the project
+└── README.md                # Project documentation
 ```
 
-## Built By
+---
 
-**Saima Manzoor** | **Code Saviours SI-26** | **2026**
+## Project Overview
 
+This project was developed as part of the **Code Saviours SI-26** program. The work includes preparing a labeled dataset, training a language classification model, evaluating its performance, and deploying an interactive demonstration.
+
+The application provides a simple interface where users can test sentences and see how individual words are classified between Roman Urdu and English.
+
+---
+
+## Built With
+
+* Python
+* Hugging Face Transformers
+* PyTorch
+* XLM-RoBERTa
+* Hugging Face Spaces
+* Google Colab / Jupyter Notebook
+
+---
+
+**Built by: Saima Manzoor | Code Saviours SI-26 | 2026**
